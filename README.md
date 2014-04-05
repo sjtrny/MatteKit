@@ -1,7 +1,7 @@
-mattekit
+MatteKit
 ========
 
-mattekit is MATLAB library for alpha matting.
+MatteKit is MATLAB library for alpha matting.
 
 Alpha Matting is the process of softly extracting foreground and background components from an image, given some user labelling.
 
