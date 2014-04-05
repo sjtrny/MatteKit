@@ -1,0 +1,31 @@
+<group>
+<ul class='breadcrumb'><li><a href='%pathto:mdoc;'>Index</a></li><li><a href='%pathto:misc.vl_binsum;'>Prev</a></li><li><a href='%pathto:misc.vl_getpid;'>Next</a></li></ul><div class="documentation"><p>
+Y = <a href="%pathto:misc.vl_colsubset;">VL_COLSUBSET</a>(X, N) returns a random subset Y of N columns of
+X. The selection is order-preserving and without replacement. If N
+is larger or equal to the number of columns of X (e.g. N=+Inf),
+then the function returns Y = X.
+</p><p>
+If 0 &lt; N &lt; 1, then the function returns a fraction N of the
+columns (rounded to the closest integer).
+</p><p>
+[Y, SEL] = <a href="%pathto:misc.vl_colsubset;">VL_COLSUBSET</a>(...) returns the indexes SEL of the
+selected columns.
+</p><p>
+The function accepts the following options:
+</p><dl><dt>
+Beginning
+</dt><dd><p>
+Causes the first N columns to be returned.
+</p></dd><dt>
+Ending
+</dt><dd><p>
+Causes the last N columns to be returned.
+</p></dd><dt>
+Random
+</dt><dd><p>
+Causes a random selection of columns to be returned (default).
+</p></dd><dt>
+Uniform
+</dt><dd><p>
+Causes N equally spaced columns to be returned.
+</p></dd></dl></div></group>

@@ -1,0 +1,24 @@
+<group>
+<ul class='breadcrumb'><li><a href='%pathto:mdoc;'>Index</a></li><li><a href='%pathto:imop.vl_imarray;'>Prev</a></li><li><a href='%pathto:imop.vl_imdisttf;'>Next</a></li></ul><div class="documentation"><p>
+J = <a href="%pathto:imop.vl_imarraysc;">VL_IMARRAYSC</a>(A) behaves as <a href="%pathto:imop.vl_imarray;">VL_IMARRAY</a>(A), but scales the range
+of each image to span the current colormap.
+</p><p>
+<a href="%pathto:imop.vl_imarraysc;">VL_IMARRAYSC</a>(...) displays the composed image rather than returing
+it.
+</p><p>
+<a href="%pathto:imop.vl_imarraysc;">VL_IMARRAYSC</a>() works only with indexed (or gray-scale) images.
+</p><p>
+<a href="%pathto:imop.vl_imarraysc;">VL_IMARRAYSC</a>() accepts the options of <a href="%pathto:imop.vl_imarray;">VL_IMARRAY</a>() and:
+</p><dl><dt>
+CLim
+<span class="defaults">[empty]</span></dt><dd><p>
+Specify the intensity range. If empty, the range is calcualted
+automatically for each image in the array.
+</p></dd><dt>
+Uniform
+<span class="defaults">[false]</span></dt><dd><p>
+If true all the images in the array are scaled in the same
+range.
+</p></dd></dl><p>
+See also: <a href="%pathto:imop.vl_imarray;">VL_IMARRAY</a>(), <a href="%pathto:vl_help;">VL_HELP</a>().
+</p></div></group>
