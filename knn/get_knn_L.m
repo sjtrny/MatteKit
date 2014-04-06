@@ -1,12 +1,10 @@
 function [ D, A ] = get_knn_L( im )
-%GETLAPLACIAN Summary of this function goes here
-%   Detailed explanation goes here
 
 run('../libs/vlfeat-0.9.13/toolbox/vl_setup');
 
 [m, n, d] = size(im);
 
-[a b] = ind2sub([m n],1:m*n);
+[a, b] = ind2sub([m n],1:m*n);
 feature = [reshape(im,m*n,d)';[a;b]/sqrt(m*m+n*n)+rand(2,m*n)*1e-6];
 
 ind_1 = vl_kdtreequery(vl_kdtreebuild(feature),feature,feature,'NUMNEIGHBORS',10,'MAXNUMCOMPARISONS',10*2);

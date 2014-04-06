@@ -1,6 +1,8 @@
 function [ alpha ] = get_matte( image, trimap_fore, trimap_back, opts )
 %GET_MATTE
-%   "KNN Matting" in CVPR12 by Qifeng Chen, Dingzeyu Li and Chi-Keung Tang
+%   "KNN Matting"
+%   Qifeng Chen, Dingzeyu Li and Chi-Keung Tang
+%   Pattern Analysis and Machine Intelligence, IEEE Transactions on  (Volume:35 ,  Issue: 9 ) 
 % 
 %   Written by Stephen Tierney
 
