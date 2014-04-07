@@ -7,4 +7,5 @@ Alpha Matting is the process of softly extracting foreground and background comp
 
 MatteKit current implements the following algorithms:
 
+- Closed-Form Matting
 - KNN Matting
