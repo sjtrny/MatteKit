@@ -56,9 +56,7 @@ function [ F, B ] = solve_FB( image, alpha )
         count = count + 4;
     end
     
-    W = sparse(row_inds, col_inds, vals, n*2, n*2);
-    D = spdiags(sum(W,2),0,n*2,n*2);
-    L_dx = D - W;
+    L_dx = sparse(row_inds, col_inds, vals, n*2, n*2);
     
     % Construct L_dy matrix
     
@@ -75,10 +73,7 @@ function [ F, B ] = solve_FB( image, alpha )
         count = count + 4;
     end
     
-    
-    W = sparse(row_inds, col_inds, vals, n*2, n*2);
-    D = spdiags(sum(W,2),0,n*2,n*2);
-    L_dy = D - W;
+    L_dy = sparse(row_inds, col_inds, vals, n*2, n*2);
     
     % Solve each layer seperately
     F = zeros(size(image));
