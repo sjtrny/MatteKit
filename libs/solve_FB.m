@@ -79,7 +79,7 @@ function [ F, B ] = solve_FB( image, alpha )
     F = zeros(size(image));
     B = zeros(size(image));
     
-    [dx, dy] = imgradientxy(alpha);
+    [dx, dy] = imgradientxy(alpha, 'IntermediateDifference');
     
     dx(inds) = 0;
     dy(inds) = 0;
