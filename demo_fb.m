@@ -1,4 +1,4 @@
-paths = 'libs';
+paths = 'common';
 addpath(paths);
 
 image = double(imread('GT01.png'))/255;
@@ -10,3 +10,5 @@ truth_slice = truth(:,:,1);
 
 figure, imshow(image .* truth);
 figure, imshow(F);
+
+rmpath(paths);

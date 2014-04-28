@@ -1,5 +1,5 @@
-paths = genpath('libs');
-paths = [paths, 'knn'];
+paths = genpath('thirdparty');
+paths = [paths, 'common:', 'knn'];
 addpath(paths);
 
 image = double(imread('GT01.png'))/255;

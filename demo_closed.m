@@ -1,4 +1,4 @@
-paths = genpath('libs');
+paths = genpath('common');
 paths = [paths, 'closed'];
 addpath(paths);
 
