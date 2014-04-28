@@ -11,7 +11,6 @@ function [ alpha ] = get_matte( image, trimap_fore, trimap_back, opts )
 D_m = spdiags(trimap_fore(:) + trimap_back(:), 0, w*h, w*h);
 
 L = get_laplacian(image, trimap_fore + trimap_back);
-% L1 = getLaplacian1(image, trimap_fore + trimap_back);
 
 A = opts.lambda_m * D_m + opts.lambda_1*L;
 b = opts.lambda_m * D_m * trimap_fore(:);
