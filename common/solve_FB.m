@@ -51,7 +51,7 @@ function [ F, B ] = solve_FB( image, alpha )
     for k = 1 : n_ind
         row_inds(1 + count : count + 4, 1) = [inds(k), inds(k)      , inds(k) + n , inds(k) + n];
         col_inds(1 + count : count + 4, 1) = [inds(k), inds(k) + h  , inds(k) + n , inds(k) + n + h ];
-        vals(1 + count : count + 4, 1) = [1, -1, 1, -1];
+        vals(1 + count : count + 4, 1) = [-1, 1, -1, 1];
         
         count = count + 4;
     end
@@ -68,7 +68,7 @@ function [ F, B ] = solve_FB( image, alpha )
     for k = 1 : n_ind
         row_inds(1 + count : count + 4, 1) = [inds(k), inds(k)      , inds(k) + n , inds(k) + n];
         col_inds(1 + count : count + 4, 1) = [inds(k), inds(k) + 1  , inds(k) + n , inds(k) + n + 1 ];
-        vals(1 + count : count + 4, 1) = [1, -1, 1, -1];
+        vals(1 + count : count + 4, 1) = [-1, 1, -1, 1];
         
         count = count + 4;
     end
@@ -79,19 +79,26 @@ function [ F, B ] = solve_FB( image, alpha )
     F = zeros(size(image));
     B = zeros(size(image));
     
-    [dx, dy] = imgradientxy(alpha, 'IntermediateDifference');
+    lambda = 0.0001;
     
-    dx(inds) = 0;
-    dy(inds) = 0;
+    [dx_f, dy_f] = imgradientxy(alpha, 'IntermediateDifference');
+
+    dx_f = dx_f .* mask;
+    dy_f = dy_f .* mask;
     
-    a_dx = [dx(:); dx(:)];
-    a_dy = [dy(:); dy(:)];
+    [dx_b, dy_b] = imgradientxy(1 - alpha, 'IntermediateDifference');
+
+    dx_b = dx_b .* mask;
+    dy_b = dy_b .* mask;
+        
+    a_dx = [dx_f(:); dx_b(:)];
+    a_dy = [dy_f(:); dy_b(:)];
     
     for k = 1 : c
         
         chan = reshape(image(:,:,k), n, 1);
-        lhs = (R' * R) + (L_dx' * L_dx) + (L_dy' * L_dy);
-        rhs = (R' * chan) + (L_dx' * a_dx) + (L_dy' * a_dy);
+        lhs = (R' * R) + lambda*(L_dx' * L_dx) + lambda*(L_dy' * L_dy);
+        rhs = (R' * chan) + lambda*(L_dx' * a_dx) + lambda*(L_dy' * a_dy);
         x = lhs \ rhs;
         
         F(:,:,k) = reshape(x(1:n), h, w);
