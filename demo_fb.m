@@ -11,4 +11,7 @@ truth_slice = truth(:,:,1);
 figure, imshow(image .* truth);
 figure, imshow(F);
 
+figure, imshow(image .* (1 - truth));
+figure, imshow(B);
+
 rmpath(paths);
