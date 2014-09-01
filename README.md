@@ -14,3 +14,4 @@ MatteKit currently implements the following matting algorithms:
 
 - Closed-Form Matting
 - KNN Matting
+- W Matting for Sparse Labels
